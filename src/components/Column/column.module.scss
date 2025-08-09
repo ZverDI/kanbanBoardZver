@@ -1,0 +1,67 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  min-width: 282px;
+  padding: 12px;
+  border-radius: 10px;
+
+  color: #000000;
+  background-color: #ebecf0;
+  font-weight: 400;
+  font-size: 18px;
+
+  &__input {
+    font-size: 18px;
+    border-radius: 5px;
+  }
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  max-width: 258px;
+  padding: 7px;
+  background-color: white;
+  border-radius: 10px;
+  white-space: normal;
+  word-wrap: break-word;
+
+  &__btn__remove {
+
+
+  }
+}
+
+
+
+
+
+
+.btn__addcard {
+  width: 90px;
+  color: #5e6c84;
+  font-size: 18px;
+  text-align: start;
+
+  &:hover {
+    color: #000000;
+    cursor: pointer;
+    background-color: #ebecf0;
+  }
+}
+
+.btn__hide,
+.btn__submit {
+  width: 102px;
+  height: 29px;
+  color: white;
+  background: #0079bf;
+  border-radius: 5px;
+
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+}
+

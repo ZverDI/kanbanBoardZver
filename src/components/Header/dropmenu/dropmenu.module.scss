@@ -1,0 +1,91 @@
+.dropmenu {
+  position: relative;
+
+  &__link {
+
+    display: flex;
+  }
+
+  &__avatar{
+    background-color: white;
+    border-radius: 50%;
+  }
+
+  &__arrow{
+    transition-duration: 0.2s;
+    transition-property: transform;
+    &--active {
+
+      transform: rotate(-180deg);
+    }
+  }
+  // выпадающее меню
+  &__sublinks {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 5px 0;
+    position: absolute;
+    width: 150px;
+    border-radius: 10px;
+
+    // скрыть меню
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+    left: -100px;
+    top: 100%;
+
+    // маленький квадратик
+//    &::before {
+//      content: "";
+//      position: absolute;
+//      width: 10px;
+//      height: 10px;
+//      background-color: white;
+//      top: -5px;
+//      // left: 17px;
+//      left: 115px;
+//      transform: rotate(45deg);
+//    }
+
+    //добавляется  класс при клике на link (открыть меню)
+    &--active {
+      z-index: 2;
+      opacity: 1;
+      visibility: visible;
+
+      top: calc(100% + 10px);
+    }
+
+    &-item {
+      cursor: pointer;
+      padding: 7px 20px;
+      font-size: 14px;
+      line-height: 17px;
+      color: #161b2d;
+
+      transition: all 150ms ease-in-out;
+
+      &:hover {
+        background-color: #bdb3b3;
+      }
+    }
+
+  }
+}
+
+//.sublinks__item {
+//  cursor: pointer;
+//  padding: 7px 20px;
+//  font-size: 14px;
+//  line-height: 17px;
+//  color: #161b2d;
+//
+//  transition: all 150ms ease-in-out;
+//
+//  &:hover {
+//    background-color: #bdb3b3;
+//  }
+//}

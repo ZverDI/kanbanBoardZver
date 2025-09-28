@@ -15,11 +15,22 @@
   display: grid;
   grid-template: 1fr / minmax(15px, 1fr) minmax(10px, 1240px) minmax(15px, 1fr);
 
+
   &__wrapper {
     grid-area: 1/2;
     @include f(space-between, flex-start, row);
     gap: 10px;
   }
+
+  @media (max-width: 1190px) {
+    justify-items: center;
+
+    &__wrapper {
+      flex-direction: column;
+      justify-content: normal;
+    }
+  }
+
   @media (max-width: 867px) {
     &__wrapper {
       @include f(flex-start, flex-start, column);

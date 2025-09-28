@@ -1,5 +1,5 @@
 import css from './main.module.scss'
-import { useState, useEffect} from "react";
+import { useState } from "react";
 import DeleteIcon from "../Column/DeleteIcon";
 
 function Main({ tasks, setTasks }) {

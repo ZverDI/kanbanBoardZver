@@ -8,7 +8,7 @@ function Header() {
 
       <div className={css.header__wrapper}>
         <a href="/" className={css.header__logo}>
-          Awesome Kanban Board6j67j7667j6767j
+          Awesome Kanban Board
         </a>
 
         <DropMenu />

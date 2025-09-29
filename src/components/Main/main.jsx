@@ -1,15 +1,19 @@
 import css from './main.module.scss'
-import { useState } from "react";
-import DeleteIcon from "../Column/DeleteIcon";
+import { Link } from 'react-router-dom';
+import { useState} from "react";
+
+import DeleteIcon from "../Icon/DeleteIcon";
+
+
+const columns = [
+  { name: "Backlog", key: "backlog" },
+  { name: "Ready", key: "ready" },
+  { name: "In Progress", key: "inProgress" },
+  { name: "Finished", key: "done" },
+];
 
 function Main({ tasks, setTasks }) {
 
-  const columns = [
-    { name: "Backlog", key: "backlog" },
-    { name: "Ready", key: "ready" },
-    { name: "In Progress", key: "inProgress" },
-    { name: "Finished", key: "done" },
-  ];
 
   const [newTask, setNewTask] = useState("");
 
@@ -56,7 +60,7 @@ function Main({ tasks, setTasks }) {
           <div key={column.key} className={css.main__column}>
             <h3>{column.name}</h3>
             {column.key === "backlog" ? (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <div  className= {css.main__column_card} >
                 <input
                   className={css.main__column__input}
                   value={newTask}
@@ -65,13 +69,13 @@ function Main({ tasks, setTasks }) {
                 />
 
                 {/* Список задач */}
-                <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <ul className= {css.main__column_card}>
                   {tasks.backlog.map((task) => (
-                    <li key={task.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: '#FFFFFF', padding:'7px', borderRadius:'5px',}}>
-                      <span>{task.text}</span>
+                    <li key={task.id} className= {css.main__column_list}>
+                      <Link to={`/task/${task.id}`}>{task.text}</Link>
                       {/* Кнопка удаления */}
                       <button onClick={() => handleDeleteTask(task.id, 'backlog')}>
-                        <DeleteIcon />
+                        <DeleteIcon w={16} h={16} />
                       </button>
                     </li>
                   ))}
@@ -87,7 +91,7 @@ function Main({ tasks, setTasks }) {
                 </button>
               </div>
             ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <div className= {css.main__column_card}>
 
 
                 <select
@@ -108,8 +112,9 @@ function Main({ tasks, setTasks }) {
 
                 <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   {tasks[column.key].map((task) => (
-                    <li key={task.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: '#FFFFFF', padding:'7px', borderRadius:'5px'}}>
-                      <span>{task.text}</span>
+                    <li key={task.id} className= {css.main__column_list}>
+                      {/* <span>{task.text}</span> */}
+                      <Link to={`/task/${task.id}`}>{task.text}</Link>
                       {/* Кнопка удаления */}
                       <button onClick={() => handleDeleteTask(task.id, column.key)}>
                         <DeleteIcon />
